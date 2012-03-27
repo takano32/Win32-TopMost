@@ -24,18 +24,12 @@ int WINAPI WinMain(
 	lState = GetWindowLong(hTargetWindow, GWL_EXSTYLE);
 	if(lState & WS_EX_TOPMOST ) {
 		MessageBox(NULL, buffer, "Unset Top Most", MB_OK);
-		//SetWindowLong(hTargetWindow, GWL_EXSTYLE, lState ^ WS_EX_TOPMOST );
-		/*
-		SetWindowPos(hTargetWindow,
-					 HWND_NOTOPMOST, 0, 0, 0, 0,
-					 SWP_SHOWWINDOW | SWP_NOMOVE | SWP_NOSIZE);
-		  */
+		SetWindowLong(hTargetWindow, GWL_EXSTYLE, lState ^ WS_EX_TOPMOST );
 	}else {
 		MessageBox(NULL, buffer, "Set Top Most", MB_OK);
-		/*
 		SetWindowPos(hTargetWindow,
 					 HWND_TOPMOST, 0, 0, 0, 0,
-					 SWP_SHOWWINDOW | SWP_NOMOVE | SWP_NOSIZE);*/
+					 SWP_SHOWWINDOW | SWP_NOMOVE | SWP_NOSIZE);
 	}
 	return 0;
 }
